@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -68,18 +69,21 @@ public class getInfo2 extends Application{
         //ArrayList<String[]> checked = new ArrayList<String[]>();
         btn.setOnAction((event) -> {
             int j = 0;
-            String[] c= new String[str.size()] ;
             HashMap<String,String[]> T=new HashMap<String,String[]>();
             for (int i = 0; i < str.size(); i++) {
+                String[] c = new String[str.size()];
+                int counter = 0;
                 for (j = 0; j < str.size(); j++) {
-                    
                     if(check[i][j].isSelected()){
-                        c[j] = check[i][j].getText();
+                        String l = str.get(j);
+                        c[counter++] = l;
                     }
                     
                 }
-                System.out.println(T);
+                
                 T.put(str.get(i),c);
+                
+
             }
             
             showresult x = new showresult(T,str);
@@ -87,8 +91,9 @@ public class getInfo2 extends Application{
             x.start(stage);
             stage.show();
         });
-        HBox hbtn = new HBox(btn,btnback);
+        HBox hbtn = new HBox(btnback,btn);
         hbtn.setAlignment(Pos.CENTER);
+        
         gride.add(hbtn, 0, str.size()+1, 2, 1);
         root.setCenter(gride);
         Scene scene = new Scene(root);

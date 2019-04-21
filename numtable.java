@@ -36,6 +36,9 @@ public class numtable {
     
     public static void dfs_visit(String u,HashMap<String,String[]> T,ArrayList<String> visited){
         for (String v : T.get(u)){
+            if(v == null){
+                continue;
+            }
             if(in(v,visited)){
                 visited.add(v);
                 dfs_visit(v, T, visited);
