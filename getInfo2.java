@@ -91,10 +91,12 @@ public class getInfo2 extends Application{
             x.start(stage);
             stage.show();
         });
-        HBox hbtn = new HBox(btnback,btn);
+        HBox hbtn = new HBox(25);
         hbtn.setAlignment(Pos.CENTER);
-        
-        gride.add(hbtn, 0, str.size()+1, 2, 1);
+        HBox.setHgrow(btn, Priority.ALWAYS);
+        HBox.setHgrow(btnback, Priority.ALWAYS);
+        hbtn.getChildren().addAll(btnback, btn);
+        gride.add(hbtn, 0, str.size(), str.size()+1, 1);
         root.setCenter(gride);
         Scene scene = new Scene(root);
         

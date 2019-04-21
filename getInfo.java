@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -85,9 +86,12 @@ public class getInfo extends Application{
             
             }
         });
-        HBox hbtn = new HBox(btnback,btn);
+        HBox hbtn = new HBox(25);
         hbtn.setAlignment(Pos.CENTER);
-        gride.add(hbtn, 0, n+1, 2, 1);
+        HBox.setHgrow(btn, Priority.ALWAYS);
+        HBox.setHgrow(btnback, Priority.ALWAYS);
+        hbtn.getChildren().addAll(btnback, btn);
+        gride.add(hbtn, 0, n,n+1, 1);
         root.setCenter(gride);
         Scene scene = new Scene(root);
         

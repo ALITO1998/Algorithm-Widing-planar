@@ -8,6 +8,7 @@ package testalgo;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -37,9 +38,9 @@ public class showresult extends Application{
         Text footer = new Text("powred by @Alito");
         footer.setFont(Font.font("roman", 8));
         root.setBottom(footer);
-        //System.out.println(this.T+"/n"+this.str);
         int n = numtable.num_table(str, T);
         Label L = new Label("You shoud have "+n+" table at least!");
+        L.setPadding(new Insets(5, 25, 5, 10));
         root.setTop(L);
         Button btnback = new Button("Thank You");
         btnback.setOnAction((event) -> {
@@ -47,7 +48,9 @@ public class showresult extends Application{
         });
         HBox hbtn = new HBox(btnback);
         hbtn.setAlignment(Pos.CENTER);
+        hbtn.setPadding(new Insets(5,25,25,25));
         root.setCenter(hbtn);
+        //root.setPadding(new Insets(0,25,0,25));
         Scene scene = new Scene(root);
         
         primaryStage.setTitle("Widding Planner Resulte");
